@@ -8,7 +8,7 @@
 </svelte:head>
 
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-  <section class="relative overflow-hidden bg-gradient-to-r from-primary-900 to-primary-800">
+  <section class="relative overflow-hidden bg-gradient-to-r from-gray-900 to-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-3 py-12 md:py-20">
       <div class="max-w-3xl">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">

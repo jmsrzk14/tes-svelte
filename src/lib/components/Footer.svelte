@@ -14,11 +14,6 @@
       </div>
       
       <div>
-        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-        <ul class="space-y-2">
-          <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-          <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Members</a></li>
-        </ul>
       </div>
       
       <div>
@@ -32,7 +27,7 @@
     
     <div class="border-t border-gray-800 mt-8 pt-8 text-center">
       <p class="text-gray-400">
-        © 2024 CV Showcase. All rights reserved.
+        © 2026 All rights reserved.
       </p>
     </div>
   </div>
