@@ -1,8 +1,14 @@
 <script lang="ts">
   let { data } = $props();
-  
+
   let tabNames = $derived(Object.keys(data.cv.tabs));
-  let activeTab = $state(tabNames[0]);
+  let activeTab = $state('');
+
+  $effect(() => {
+    if (!tabNames.includes(activeTab)) {
+      activeTab = tabNames[0] ?? '';
+    }
+  });
 </script>
 
 <svelte:head>
