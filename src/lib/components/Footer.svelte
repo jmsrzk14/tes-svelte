@@ -24,7 +24,7 @@
       <div>
         <h3 class="text-lg font-semibold mb-4">Contact</h3>
         <p class="text-gray-400">
-          Email: info@cvshowcase.com<br/>
+          Email: terserah@cvshowcase.com<br/>
           Phone: +62 123 4567 890
         </p>
       </div>
