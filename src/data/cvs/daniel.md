@@ -1,6 +1,6 @@
 ---
 id: "bambang"
-name: "Bambang"
+name: "Daniel"
 role: "Bambang"
 email: "bambang@example.com"
 avatar: "bambang"
