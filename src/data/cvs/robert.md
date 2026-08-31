@@ -3,7 +3,7 @@ id: "Robert"
 name: "Robert Panca R. Simanjuntak"
 role: "Support Engineer"
 email: "Robert@example.com"
-avatar: "Robert"
+avatar: "/image/Robert.jpg"
 ---
 ## Profil Singkat
 Computer Science graduate with experience in machine learning, data analysis, frontend development, and UI/UX 
