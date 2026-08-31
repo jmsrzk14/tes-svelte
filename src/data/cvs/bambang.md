@@ -3,7 +3,7 @@ id: "bambang"
 name: "Bambang"
 role: "Enterprise Softwate Engineer"
 email: "anisetusm@gmail.com"
-avatar: "/images/Bambang.jpg"
+avatar: "/image/Bambang.jpg"
 ---
 ## Profil Singkat
 
