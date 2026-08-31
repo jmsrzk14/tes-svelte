@@ -1,6 +1,6 @@
 ---
 id: "bambang"
-name: "Bambang"
+name: "Anisetus Bambang Manalu"
 role: "Enterprise Softwate Engineer"
 email: "anisetusm@gmail.com"
 avatar: "/image/Bambang.jpg"
@@ -11,7 +11,7 @@ Mahasiswa Teknologi Rekayasa Perangkat Lunak dengan fokus pada pengembangan Soft
 
 ## Pendidikan
 
-- **Institut Teknologi Del** — Jurusan Teknologi Rekayasa Perangkat Lunak (2023 - 2027)
+- **Institut Teknologi Del** — Software Engineering Technologi (2023 - 2027)
 
 ## Pengalaman Proyek
 

@@ -1,25 +1,24 @@
 ---
-id: "bambang"
-name: "Bambang"
-role: "Bambang"
-email: "bambang@example.com"
+id: "maya"
+name: "Faid Maya Sofia"
+role: "Enterprise Software Engineer"
+email: "faidmaya27@gmail.com"
 avatar: "bambang"
 ---
 ## Profil Singkat
 
-Saya Bambang
+Mathematics Education graduate with a solid foundation in pure logic and analytical problem-solving. Successfully transitioned into Web Development through an intensive Fullstack Developer Bootcamp. 
 
 ## Pengalaman Kerja
 
-- **Frontend Engineer** di Bambang (2021 - Sekarang)
-  - Bambang
-  - Bambang
-- **Junior Web Developer** di Bambang (2019 - 2021)
-  - Bambang
+- **Pengajar Matematika** di Bimnel SMARRT (Juni 2025 - Agustus 2026)
+
+- **Pengajar Matematika** di Ganesha Operation (Juni 2023 - Juni 2025)
+
 
 ## Pendidikan
 
-- S1 Teknik Bambang, Bambang (2015 - 2019)
+- UIN Syarif Hidayatullah Jakarta
 
 ## Keahlian
 
