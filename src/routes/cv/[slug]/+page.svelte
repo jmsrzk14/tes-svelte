@@ -1,5 +1,10 @@
 <script lang="ts">
   let { data } = $props();
+  
+  // Extract tab names
+  let tabNames = $derived(Object.keys(data.cv.tabs));
+  // Set first tab as active by default
+  let activeTab = $state(tabNames[0]);
 </script>
 
 <svelte:head>
@@ -51,10 +56,26 @@
         </a>
       </div>
 
-      <!-- Markdown Body -->
-      <div class="prose prose-slate prose-lg max-w-3xl prose-headings:text-slate-900 prose-a:text-primary-600 hover:prose-a:text-primary-500">
+      <!-- Tabs Navigation -->
+      <div class="flex space-x-4 mb-8 border-b overflow-x-auto">
+        {#each tabNames as tab}
+          <button
+            class={`px-4 py-2 font-medium transition-colors whitespace-nowrap border-b-2 ${
+              activeTab === tab
+                ? 'text-primary-600 border-primary-600'
+                : 'text-gray-600 hover:text-gray-900 border-transparent'
+            }`}
+            onclick={() => activeTab = tab}
+          >
+            {tab}
+          </button>
+        {/each}
+      </div>
+
+      <!-- Markdown Body (Active Tab) -->
+      <div class="prose prose-slate prose-lg max-w-3xl prose-headings:text-slate-900 prose-a:text-primary-600 hover:prose-a:text-primary-500 min-h-[300px]">
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-        {@html data.cv.htmlContent}
+        {@html data.cv.tabs[activeTab]}
       </div>
     </div>
   </div>
