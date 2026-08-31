@@ -8,8 +8,8 @@
 </svelte:head>
 
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-  <section class="relative overflow-hidden bg-gradient-to-r from-primary-600 to-primary-700">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+  <section class="relative overflow-hidden bg-gradient-to-r from-gray-900 to-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-3 py-12 md:py-20">
       <div class="max-w-3xl">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
           Izin Tampil, Kami Kelompok Terserah 😎
@@ -30,14 +30,15 @@
   <section id="featured" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Featured Members
+        Members
       </h2>
-      <p class="text-lg text-gray-600">
-        Berikut adalah beberapa profil profesional yang dapat Anda jelajahi
-      </p>
     </div>
 
+<<<<<<< HEAD
 	<div class= "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+=======
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">   
+>>>>>>> 6734669cd6ae87e074b82e33fa115dbdbb6e20db
 		{#each data.cvs as cv}
 			<CVCard {cv} />
 		{/each}

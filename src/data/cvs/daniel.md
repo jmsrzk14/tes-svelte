@@ -3,7 +3,7 @@ id: "1"
 name: "Daniel L. Tobing"
 role: "Enterprise Software Engineer"
 email: "danieltbg145@gmail.com"
-avatar: "daniel"
+avatar: "/image/daniel.jpg"
 ---
 ## Profil Singkat
 

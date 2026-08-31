@@ -16,7 +16,32 @@ export const load: PageServerLoad = async ({ params }) => {
 
 	const fileContent = fs.readFileSync(filePath, 'utf8');
 	const { data, content } = matter(fileContent);
-	const htmlContent = await marked.parse(content);
+
+	// Split content into tabs based on ## headers
+	const tabs: Record<string, string> = {};
+	let currentTab = 'Profil'; // Default tab if there's text before the first header
+	tabs[currentTab] = '';
+
+	const lines = content.split('\n');
+	for (const line of lines) {
+		const match = line.match(/^##\s+(.*)/);
+		if (match) {
+			currentTab = match[1].trim();
+			tabs[currentTab] = '';
+		} else {
+			tabs[currentTab] += line + '\n';
+		}
+	}
+
+	// Remove default tab if it's empty
+	if (!tabs['Profil'].trim()) {
+		delete tabs['Profil'];
+	}
+
+	// Parse each tab's content with marked
+	for (const key in tabs) {
+		tabs[key] = await marked.parse(tabs[key]);
+	}
 
 	return {
 		cv: {
@@ -26,7 +51,7 @@ export const load: PageServerLoad = async ({ params }) => {
 			email: data.email,
 			avatar: data.avatar,
 			id: data.id,
-			htmlContent
+			tabs
 		}
 	};
 }

@@ -3,11 +3,11 @@ id: "james"
 name: "James Frans Rizky Tambunan"
 role: "Enterprise Software Engineer"
 email: "jmsrizky@gmail.com"
-avatar: "bambang"
+avatar: "/image/James.jpeg"
 ---
 ## Profil Singkat
 
-Saya adalah seorang Frontend Developer dengan pengalaman lebih dari 3 tahun dalam membangun antarmuka web yang interaktif dan responsif. Berfokus pada ekosistem JavaScript, khususnya Svelte dan React.
+I'm a software and IoT developer with designing and implementing scalable, high-performance systems. Experienced in JavaScript, TypeScript, PHP, Go, Dart, Java, Arduino, and Raspberry Pi, with strong proficiency in RESTful API development, database optimization, and IoT architecture. Adept at building full-stack solutions using Laravel, Next.js, and Flutter, with a commitment to delivering secure, efficient, and impactful technology solutions that accelerate organizational growth.
 
 ## Pengalaman Kerja
 
