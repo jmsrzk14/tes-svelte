@@ -3,7 +3,7 @@ id: "maya"
 name: "Faid Maya Sofia"
 role: "Enterprise Software Engineer"
 email: "faidmaya27@gmail.com"
-avatar: "bambang"
+avatar: "/image/1000490334.jpg"
 ---
 ## Profil Singkat
 

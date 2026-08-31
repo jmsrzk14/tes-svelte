@@ -23,7 +23,7 @@
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="/" class="text-gray-700 hover:text-primary-600 font-medium">Home</a>
-        <a href="/members" class="text-gray-700 hover:text-primary-600 font-medium">Members</a>
+        <a href="#featured" class="text-gray-700 hover:text-primary-600 font-medium">Members</a>
       </div>
       
       <!-- Mobile Menu Button -->
