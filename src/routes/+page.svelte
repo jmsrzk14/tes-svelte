@@ -12,10 +12,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
       <div class="max-w-3xl">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-          Temukan Talenta Terbaik
+          Izin Tampil, Kami Kelompok Terserah 😎
         </h1>
         <p class="text-xl text-white/90 mb-8">
-          Platform showcase CV profesional untuk menampilkan keahlian dan pengalaman para talenta terbaik.
+          Namanya Terserah, tapi CV-nya nggak sembarangan. Kenalan dulu sama talenta di balik kelompok ini!
         </p>
         <a href="#featured" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md transition-colors duration-200 bg-white text-primary-700 hover:bg-gray-100">
           Lihat Semua CV
