@@ -29,7 +29,7 @@
         <h3 class="text-lg font-semibold mb-4">Contact</h3>
         <p class="text-gray-400">
           Email: info@cvshowcase.com<br/>
-          Phone: +62 123 4567 890
+          Phone: +62 812  3456 7890
         </p>
       </div>
     </div>

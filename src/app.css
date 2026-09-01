@@ -11,7 +11,7 @@
   --color-primary-700: #1d4ed8;
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
-  
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -21,9 +21,9 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
-    @apply bg-gray-50 text-gray-900 antialiased;
+    @apply bg-slate-50 text-slate-900 antialiased;
     font-family: var(--font-sans);
   }
 }
@@ -32,11 +32,23 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
+  .page-shell {
+    @apply min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100;
+  }
+
+  .section-shell {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20;
+  }
+
+  .surface-panel {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+
   .btn-primary {
     @apply inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl;
   }
-  
+
   .card {
     @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300;
   }

@@ -1,217 +1,255 @@
-import type { Member } from './types';
+import daniel from '../../data/cvs/daniel.md?raw';
+import james from '../../data/cvs/james.md?raw';
+import robert from '../../data/cvs/robert.md?raw';
+import bambang from '../../data/cvs/bambang.md?raw';
+import maya from '../../data/cvs/maya.md?raw';
+import type { Education, Experience, Member, Project, Skill } from './types';
 
-export const members: Member[] = [
-  {
-    id: 'alina-peterson',
-    name: 'Alina Peterson',
-    title: 'Senior Product Designer',
-    email: 'alina.peterson@example.com',
-    phone: '+65 8123 4567',
-    location: 'Singapore',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
-    bio: 'Product designer with 7+ years of experience shaping intuitive digital experiences across fintech, SaaS, and e-commerce. Passionate about design systems, research, and translating complex workflows into elegant user experiences.',
-    education: [
-      {
-        institution: 'National University of Singapore',
-        degree: 'B.A.',
-        field: 'Interaction Design',
-        startDate: '2013',
-        endDate: '2017',
-        description: 'Focused on user-centered design, visual systems, and human-computer interaction.'
-      }
-    ],
-    experience: [
-      {
-        company: 'Northstar Studio',
-        position: 'Senior Product Designer',
-        startDate: '2022',
-        endDate: 'Present',
-        description: 'Leading end-to-end redesign of the onboarding and analytics experience for B2B clients.',
-        achievements: [
-          'Reduced onboarding friction by 28% through usability research and iterative prototyping.',
-          'Built a scalable design system adopted by 4 product squads.',
-          'Partnered with PMs and engineers to ship 3 major platform initiatives.'
-        ]
-      },
-      {
-        company: 'PixelForge',
-        position: 'UX Designer',
-        startDate: '2019',
-        endDate: '2022',
-        description: 'Designed dashboards and customer journeys for SaaS products serving enterprise teams.',
-        achievements: [
-          'Improved feature adoption by 19% after redesigning the core workflow.',
-          'Ran usability interviews and synthesized insights into actionable design recommendations.'
-        ]
-      }
-    ],
-    skills: [
-      { name: 'UX Research', level: 'Advanced', category: 'Research' },
-      { name: 'Figma', level: 'Advanced', category: 'Design Tools' },
-      { name: 'Design Systems', level: 'Advanced', category: 'Product Design' },
-      { name: 'User Flows', level: 'Advanced', category: 'Strategy' }
-    ],
-    projects: [
-      {
-        name: 'Fintech Dashboard Redesign',
-        description: 'Reimagined the customer analytics dashboard for clearer decision-making and lower cognitive load.',
-        technologies: ['Figma', 'Notion', 'Maze'],
-        link: 'https://example.com/fintech-dashboard'
-      },
-      {
-        name: 'Marketplace UX Audit',
-        description: 'Mapped friction points across the buying journey and proposed a research-driven retention strategy.',
-        technologies: ['FigJam', 'Google Analytics', 'Hotjar'],
-        link: 'https://example.com/marketplace-ux'
-      }
-    ],
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/alinapeterson',
-      github: 'https://github.com/alinapeterson',
-      website: 'https://alinapeterson.design'
+const rawMemberFiles = [
+  { id: 'daniel', content: daniel },
+  { id: 'james', content: james },
+  { id: 'robert', content: robert },
+  { id: 'bambang', content: bambang },
+  { id: 'maya', content: maya }
+] as const;
+
+function normalizeKey(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function splitBlocks(raw: string): string[] {
+  return raw
+    .split(/\n(?=-\s)/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+}
+
+function parseMetadata(content: string): Record<string, string> {
+  const metadata: Record<string, string> = {};
+  const firstSection = content.split(/\n##\s+/)[0] ?? content;
+  const lines = firstSection
+    .split(/\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  for (const line of lines) {
+    const directMatch = line.match(/^([a-z][a-z0-9_-]*)\s*:\s*(.+)$/i);
+    if (directMatch) {
+      metadata[normalizeKey(directMatch[1])] = directMatch[2].trim();
+      continue;
     }
-  },
-  {
-    id: 'daniel-cho',
-    name: 'Daniel Cho',
-    title: 'Full-Stack Engineer',
-    email: 'daniel.cho@example.com',
-    phone: '+1 415 555 0188',
-    location: 'San Francisco, CA',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
-    bio: 'Full-stack engineer focused on building reliable product systems, developer experience, and scalable web platforms. Enjoys turning architectural ideas into products that move fast and stay maintainable.',
-    education: [
-      {
-        institution: 'University of California, Berkeley',
-        degree: 'B.S.',
-        field: 'Computer Science',
-        startDate: '2012',
-        endDate: '2016',
-        description: 'Emphasis on distributed systems, human-centered computing, and software engineering.'
-      }
-    ],
-    experience: [
-      {
-        company: 'Bright Labs',
-        position: 'Senior Full-Stack Engineer',
-        startDate: '2021',
-        endDate: 'Present',
-        description: 'Building internal tooling and customer-facing features for a developer workflow platform.',
-        achievements: [
-          'Reduced release incidents by 35% with stronger observability and CI improvements.',
-          'Led migration from a legacy monolith to a modular service architecture.',
-          'Mentored 3 engineers and improved team delivery throughput.'
-        ]
-      },
-      {
-        company: 'Stackwell',
-        position: 'Software Engineer',
-        startDate: '2018',
-        endDate: '2021',
-        description: 'Built commerce infrastructure and API services that supported rapid product iteration.',
-        achievements: [
-          'Optimized API latency by 42% through caching and query improvements.',
-          'Implemented automated testing to support safe releases across multiple teams.'
-        ]
-      }
-    ],
-    skills: [
-      { name: 'TypeScript', level: 'Advanced', category: 'Frontend' },
-      { name: 'Node.js', level: 'Advanced', category: 'Backend' },
-      { name: 'PostgreSQL', level: 'Advanced', category: 'Data' },
-      { name: 'System Design', level: 'Intermediate', category: 'Architecture' }
-    ],
-    projects: [
-      {
-        name: 'Developer Productivity Suite',
-        description: 'Created an internal dashboard helping engineering teams monitor incidents, analytics, and release health.',
-        technologies: ['React', 'Node.js', 'PostgreSQL'],
-        link: 'https://example.com/productivity-suite'
-      },
-      {
-        name: 'API Gateway Upgrade',
-        description: 'Modernized a legacy gateway with better routing, observability, and security controls.',
-        technologies: ['Go', 'Redis', 'Kubernetes'],
-        link: 'https://example.com/api-gateway'
-      }
-    ],
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/danielcho',
-      github: 'https://github.com/danielcho',
-      website: 'https://danielcho.dev'
-    }
-  },
-  {
-    id: 'maya-rahman',
-    name: 'Maya Rahman',
-    title: 'Data & Insights Lead',
-    email: 'maya.rahman@example.com',
-    phone: '+44 20 7946 0958',
-    location: 'London, UK',
-    avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80',
-    bio: 'Analytics leader who helps teams turn ambiguity into action through strong measurement, experimentation, and stakeholder alignment. Skilled at translating data into business decisions and product momentum.',
-    education: [
-      {
-        institution: 'London School of Economics',
-        degree: 'M.Sc.',
-        field: 'Data Science',
-        startDate: '2015',
-        endDate: '2016',
-        description: 'Focused on statistical modeling, experiment design, and data storytelling.'
-      }
-    ],
-    experience: [
-      {
-        company: 'Northlane Analytics',
-        position: 'Data & Insights Lead',
-        startDate: '2020',
-        endDate: 'Present',
-        description: 'Owns the analytics roadmap and drives experimentation for customer acquisition and retention teams.',
-        achievements: [
-          'Increased conversion by 26% after redesigning the acquisition funnel based on cohort analysis.',
-          'Built dashboards used by leadership to make weekly product decisions.',
-          'Partnered with product and marketing to define a unified KPI framework.'
-        ]
-      },
-      {
-        company: 'Crest Advisory',
-        position: 'Senior Analyst',
-        startDate: '2017',
-        endDate: '2020',
-        description: 'Delivered forecasting models and business intelligence solutions for digital health and retail programs.',
-        achievements: [
-          'Reduced time-to-insight by 40% using a more scalable reporting workflow.',
-          'Created a modeling framework used across three different client verticals.'
-        ]
-      }
-    ],
-    skills: [
-      { name: 'SQL', level: 'Advanced', category: 'Analytics' },
-      { name: 'Python', level: 'Advanced', category: 'Data Science' },
-      { name: 'Experiment Design', level: 'Advanced', category: 'Research' },
-      { name: 'Storytelling', level: 'Intermediate', category: 'Communication' }
-    ],
-    projects: [
-      {
-        name: 'Retention Cohort Analysis',
-        description: 'Designed a scalable cohort framework to identify churn risk and test interventions with measurable business impact.',
-        technologies: ['SQL', 'Python', 'Tableau'],
-        link: 'https://example.com/retention-analysis'
-      },
-      {
-        name: 'Executive KPI Dashboard',
-        description: 'Built a board-ready dashboard translating product and growth performance into clear strategic narratives.',
-        technologies: ['Looker', 'BigQuery', 'Google Sheets'],
-        link: 'https://example.com/kpi-dashboard'
-      }
-    ],
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/mayarahman',
-      github: 'https://github.com/mayarahman',
-      website: 'https://mayarahman.io'
+
+    const weirdMatches = [...line.matchAll(/(id|name|title|role|email|phone|location|avatar|linkedin|github|website)\s*[: ]?(.*?)(?=(?:id|name|title|role|email|phone|location|avatar|linkedin|github|website)\b|$)/gi)];
+    for (const match of weirdMatches) {
+      const key = normalizeKey(match[1]);
+      const value = match[2]?.trim();
+      if (key && value) metadata[key] = value;
     }
   }
-];
+
+  return metadata;
+}
+
+function buildSections(content: string): Record<string, string> {
+  const sections: Record<string, string> = {};
+  const parts = content.split(/^##\s+/m).slice(1);
+
+  for (const part of parts) {
+    const [rawHeading, ...rawBody] = part.split(/\n/);
+    const heading = normalizeKey(rawHeading || '');
+    if (!heading) continue;
+    sections[heading] = rawBody.join('\n').trim();
+  }
+
+  return sections;
+}
+
+function parseEducation(raw: string): Education[] {
+  if (!raw) return [];
+
+  return splitBlocks(raw).map((block) => {
+    const entry: Record<string, string> = {};
+    const lines = block
+      .replace(/^-\s*/, '')
+      .split(/\n/)
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    let currentKey = '';
+
+    for (const line of lines) {
+      const keyValue = line.match(/^([A-Za-z\s]+)\s*:\s*(.+)$/);
+      if (keyValue) {
+        const key = keyValue[1].trim().toLowerCase();
+        const value = keyValue[2].trim();
+        entry[key] = value;
+        currentKey = key;
+        continue;
+      }
+
+      if (currentKey && !entry.description) {
+        entry.description = line;
+      }
+    }
+
+    const dates = entry.dates || '';
+    const [startDate, ...endDateParts] = dates.split(' - ');
+
+    return {
+      institution: entry.institution || 'Unknown institution',
+      degree: entry.degree || '',
+      field: entry.field || '',
+      startDate: startDate || '',
+      endDate: endDateParts.join(' - ') || '',
+      description: entry.description || ''
+    } satisfies Education;
+  });
+}
+
+function parseExperience(raw: string): Experience[] {
+  if (!raw) return [];
+
+  return splitBlocks(raw).map((block) => {
+    const entry: Record<string, string | string[]> = { achievements: [] };
+    const lines = block
+      .replace(/^-\s*/, '')
+      .split(/\n/)
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    let collectingAchievements = false;
+
+    for (const line of lines) {
+      if (line === 'achievements:') {
+        collectingAchievements = true;
+        continue;
+      }
+
+      if (collectingAchievements) {
+        if (line.startsWith('-')) {
+          const achievements = Array.isArray(entry.achievements) ? entry.achievements : [];
+          achievements.push(line.replace(/^-\s*/, '').trim());
+          entry.achievements = achievements;
+        }
+        continue;
+      }
+
+      const keyValue = line.match(/^([A-Za-z\s]+)\s*:\s*(.+)$/);
+      if (keyValue) {
+        const key = keyValue[1].trim().toLowerCase();
+        const value = keyValue[2].trim();
+        entry[key] = value;
+        continue;
+      }
+
+      if (!entry.description) {
+        entry.description = line;
+      }
+    }
+
+    const dates = String(entry.dates || '');
+    const [startDate, ...endDateParts] = dates.split(' - ');
+
+    return {
+      company: String(entry.company || 'Unknown company'),
+      position: String(entry.position || 'Professional'),
+      startDate: startDate || '',
+      endDate: endDateParts.join(' - ') || '',
+      description: String(entry.description || 'No description provided.'),
+      achievements: Array.isArray(entry.achievements) ? entry.achievements.map(String) : []
+    } satisfies Experience;
+  });
+}
+
+function parseSkills(raw: string): Skill[] {
+  if (!raw) return [];
+
+  return splitBlocks(raw).map((block) => {
+    const text = block.replace(/^-\s*/, '').trim();
+    const name = text.replace(/\s*:\s*.*$/, '').trim();
+    const category = text.includes(':') ? text.split(/\s*:\s*/)[1]?.trim() || 'General' : 'General';
+
+    return {
+      name: name || block,
+      level: 'Advanced',
+      category
+    } satisfies Skill;
+  });
+}
+
+function parseProjects(raw: string): Project[] {
+  if (!raw) return [];
+
+  return splitBlocks(raw).map((block) => {
+    const entry: Record<string, string | string[]> = { technologies: [] };
+    const lines = block
+      .replace(/^-\s*/, '')
+      .split(/\n/)
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    for (const line of lines) {
+      const keyValue = line.match(/^([A-Za-z\s]+)\s*:\s*(.+)$/);
+      if (keyValue) {
+        const key = keyValue[1].trim().toLowerCase();
+        const value = keyValue[2].trim();
+
+        if (key === 'technologies') {
+          entry[key] = value.split(',').map((item) => item.trim()).filter(Boolean);
+          continue;
+        }
+
+        entry[key] = value;
+        continue;
+      }
+
+      if (!entry.description) {
+        entry.description = line;
+      }
+    }
+
+    return {
+      name: String(entry.name || 'Untitled project'),
+      description: String(entry.description || 'No description provided.'),
+      technologies: Array.isArray(entry.technologies) ? entry.technologies.map(String) : [],
+      link: typeof entry.link === 'string' ? entry.link : undefined
+    } satisfies Project;
+  });
+}
+
+function parseMember(content: string): Member {
+  const metadata = parseMetadata(content);
+  const sections = buildSections(content);
+  const name = metadata.name || metadata.title || 'Unknown member';
+  const title = metadata.title || metadata.role || 'Professional';
+
+  return {
+    id: metadata.id || name.toLowerCase().replace(/\s+/g, '-'),
+    name,
+    title,
+    email: metadata.email || '',
+    phone: metadata.phone || '',
+    location: metadata.location || 'Indonesia',
+    avatar: metadata.avatar || '',
+    bio: sections['profil singkat'] || sections['about'] || 'Member profile is ready to be updated.',
+    education: parseEducation(sections['pendidikan'] || sections['education'] || ''),
+    experience: parseExperience(sections['pengalaman proyek'] || sections['experience'] || sections['pengalaman kerja'] || ''),
+    skills: parseSkills(sections['keahlian'] || sections['skills'] || ''),
+    projects: parseProjects(sections['proyek'] || sections['projects'] || ''),
+    socialLinks: {
+      linkedin: metadata.linkedin || undefined,
+      github: metadata.github || undefined,
+      website: metadata.website || undefined
+    }
+  } satisfies Member;
+}
+
+export const members: Member[] = rawMemberFiles.map((member) => parseMember(member.content));
 
 export function getMember(id: string): Member | undefined {
   return members.find((member) => member.id === id);

@@ -13,9 +13,8 @@
 </script>
 
 {#if member}
-  <div class="bg-gray-50 min-h-screen">
-    <!-- Cover Section -->
-    <div class="bg-gradient-to-r from-primary-600 to-primary-700 pb-32">
+  <div class="page-shell">
+    <div class="bg-gray-900 pb-32">
       <div class="container-custom pt-12">
         <div class="flex flex-col md:flex-row items-center md:items-end space-y-4 md:space-y-0 md:space-x-8">
           <div class="w-32 h-32 md:w-40 md:h-40 bg-white rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0">
@@ -31,8 +30,8 @@
           </div>
           <div class="text-center md:text-left pb-4">
             <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">{member.name}</h1>
-            <p class="text-xl text-white/90">{member.title}</p>
-            <p class="text-white/70 mt-1">{member.location}</p>
+            <p class="text-xl text-gray-300">{member.title}</p>
+            <p class="text-gray-400 mt-1">{member.location}</p>
           </div>
         </div>
       </div>
@@ -40,7 +39,7 @@
 
     <!-- Main Content -->
     <div class="container-custom -mt-24 pb-16">
-      <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+      <div class="surface-panel p-6 md:p-8">
         <!-- Contact Info -->
         <div class="flex flex-wrap gap-6 mb-8 pb-8 border-b">
           <a href={`mailto:${member.email}`} class="flex items-center space-x-2 text-gray-600 hover:text-primary-600">
@@ -89,7 +88,6 @@
                     <div class="border-l-4 border-primary-500 pl-4">
                       <h3 class="font-semibold text-lg">{edu.degree} in {edu.field}</h3>
                       <p class="text-gray-600">{edu.institution}</p>
-                      <p class="text-sm text-gray-500">{edu.startDate} - {edu.endDate}</p>
                       {#if edu.description}
                         <p class="text-gray-600 mt-2">{edu.description}</p>
                       {/if}
