@@ -17,7 +17,7 @@
         <p class="text-xl text-white/90 mb-8">
           Namanya Terserah, tapi CV-nya nggak sembarangan. Kenalan dulu sama talenta di balik kelompok ini!
         </p>
-        <a href="#featured" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md transition-colors duration-200 bg-white text-primary-700 hover:bg-gray-100">
+        <a href="#anggota" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md transition-colors duration-200 bg-white text-primary-700 hover:bg-gray-100">
           Lihat Semua CV
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -27,7 +27,7 @@
     </div>
   </section>
 
-  <section id="featured" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+  <section id="anggota" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         Members

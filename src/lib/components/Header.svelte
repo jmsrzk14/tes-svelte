@@ -1,5 +1,5 @@
 <script lang="ts">
-  let isMenuOpen = false;
+  let isMenuOpen = $state(false);
   
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
@@ -23,7 +23,7 @@
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="/" class="text-gray-700 hover:text-primary-600 font-medium">Home</a>
-        <a href="#featured" class="text-gray-700 hover:text-primary-600 font-medium">Members</a>
+        <a href="/#anggota" class="text-gray-700 hover:text-primary-600 font-medium">Members</a>
       </div>
       
       <!-- Mobile Menu Button -->
@@ -47,7 +47,7 @@
       <div class="md:hidden pb-4">
         <div class="flex flex-col space-y-2">
           <a href="/" onclick={handleNavigate} class="px-3 py-2 rounded-lg hover:bg-gray-100 font-medium">Home</a>
-          <a href="/members" onclick={handleNavigate} class="px-3 py-2 rounded-lg hover:bg-gray-100 font-medium">Members</a>
+          <a href="/#anggota" onclick={handleNavigate} class="px-3 py-2 rounded-lg hover:bg-gray-100 font-medium">Members</a>
         </div>
       </div>
     {/if}

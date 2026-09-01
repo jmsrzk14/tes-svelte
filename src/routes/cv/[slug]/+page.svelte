@@ -1,8 +1,14 @@
 <script lang="ts">
   let { data } = $props();
-  
+
   let tabNames = $derived(Object.keys(data.cv.tabs));
-  let activeTab = $state(tabNames[0]);
+  let activeTab = $state('');
+
+  $effect(() => {
+    if (!tabNames.includes(activeTab)) {
+      activeTab = tabNames[0] ?? '';
+    }
+  });
 </script>
 
 <svelte:head>
@@ -10,7 +16,7 @@
 </svelte:head>
 
 <div class="bg-gray-50 min-h-screen">
-  <div class="bg-gradient-to-r from-gray-900 to-gray-800 pb-32">
+  <div class="bg-gradient-to-r from-primary-600 to-primary-700 pb-32">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-8 md:pt-12">
       <div class="flex flex-col md:flex-row items-center md:items-end space-y-4 md:space-y-0 md:space-x-8">
         <div class="w-32 h-32 md:w-40 md:h-40 bg-white rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0">
