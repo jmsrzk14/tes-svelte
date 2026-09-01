@@ -26,3 +26,6 @@ Informatics student at Del Institute of Technology with internship experience in
 - HTML, CSS, JavaScript
 - Svelte, SvelteKit, React
 - Tailwind CSS, Bootstrap
+
+
+<!-- ## pecinta wanita -->
